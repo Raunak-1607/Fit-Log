@@ -1,7 +1,8 @@
 import React from "react";
-import LibraryCard from "../Shared-Components/LibraryCard";
+
 import { Workout } from "@/app/Type/Type";
 import { Bebas_Neue, Inter } from "next/font/google";
+import LibraryCard from "../Components/Shared-Components/LibraryCard";
 
 const bebas = Bebas_Neue({
   weight: "400",

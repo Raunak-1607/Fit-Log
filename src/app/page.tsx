@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Banner from "./Components/Shared-Components/Banner";
-import Library from "./Components/Library/Library";
+import Library from "./Library/page";
 
 export default function Home() {
   return <>
