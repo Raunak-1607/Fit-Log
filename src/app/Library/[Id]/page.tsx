@@ -1,5 +1,7 @@
 import Image from "next/image";
 import { Workout } from "@/app/Type/Type";
+import AddBtn from "@/app/Components/Button/Add";
+import SaveBtn from "@/app/Components/Button/Save";
 
 const WorkoutPageDetails = async ({
   params,
@@ -106,13 +108,8 @@ const WorkoutPageDetails = async ({
 
           {/* Buttons */}
           <div className="flex gap-4">
-            <button className="flex-1 bg-[#ccff00] text-black font-bold py-3 rounded-xl">
-              Add to today's plan
-            </button>
-
-            <button className="flex-1 border border-white/10 text-white py-3 rounded-xl">
-              Save for later
-            </button>
+            <AddBtn data={data}/>
+            <SaveBtn data ={data}/>
           </div>
         </div>
 
