@@ -4,6 +4,7 @@ import { WorkoutContext } from "@/app/Context/WorkoutProvider";
 import { Workout } from "@/app/Type/Type";
 import React, { useContext } from "react";
 import { toast } from "react-toastify";
+import { FaRegBookmark } from "react-icons/fa6";
 interface DataProps {
   data: Workout;
 }
@@ -25,9 +26,10 @@ const SaveBtn = ({ data }: DataProps) => {
   return (
     <div>
       <button
-        className="flex flex justify-center items-center w-[200] border border-white/10 text-white py-3 rounded-xl"
+        className="flex flex justify-center items-center gap-2 w-[200] border border-white/10 text-white py-3 rounded-xl"
         onClick={() => handleBtn()}
       >
+        <FaRegBookmark />
         Save for later
       </button>
     </div>

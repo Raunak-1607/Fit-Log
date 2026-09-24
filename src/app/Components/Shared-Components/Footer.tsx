@@ -4,7 +4,9 @@ import logo from "@/app/assests/logo.png";
 
 const Footer = () => {
   return (
-    <footer className="footer sm:footer-horizontal footer-center bg-base-300 text-base-content flex justify-between items-center mt-7 p-4">
+    <div className=" bg-base-300 ">
+
+    <footer className="footer sm:footer-horizontal footer-center bg-base-300 text-base-content flex justify-between items-center mt-7 p-4 container mx-auto">
   <aside className="grid-flow-col items-center">
         <Image
           src={logo}
@@ -21,6 +23,7 @@ const Footer = () => {
     </p>
   </aside>
 </footer>
+    </div>
   );
 };
 
