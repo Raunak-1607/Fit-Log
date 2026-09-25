@@ -3,6 +3,21 @@ import { Workout } from "@/app/Type/Type";
 import AddBtn from "@/app/Components/Button/Add";
 import SaveBtn from "@/app/Components/Button/Save";
 
+
+const generateStaticParams = async()=>{
+  const res =await fetch("https://api.abcz.workers.dev/api/fitlog")
+  const data = await res.json()
+   return (
+    data.map((workout:Workout) =>{
+      return{
+        Id : String(workout.id)
+      }
+
+    })
+   )
+  
+}
+
 const WorkoutPageDetails = async ({
   params,
 }: {

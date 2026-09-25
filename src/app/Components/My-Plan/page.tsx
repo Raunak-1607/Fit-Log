@@ -37,14 +37,14 @@ const MyPlanPage = () => {
   return (
     <div className="min-h-screen">
       <main className="max-w-[1200px] mx-auto px-5 py-8">
-        {/* Header */}
+        
         <h1 className="text-3xl font-black">MY PLAN</h1>
 
         <p className="text-sm text-gray-500 mt-1">
           Cap of five lifts for today. Finish them, then load more.
         </p>
 
-        {/* Statistics */}
+       
         <div className="bg-[#13161c] border border-[#252a33] rounded-2xl p-6 my-7">
           <div className="grid grid-cols-3">
             <div className="border-r border-[#252a33]">
