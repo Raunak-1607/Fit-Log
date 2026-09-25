@@ -4,7 +4,7 @@ import logo from "@/app/assests/logo.png";
 
 const Footer = () => {
   return (
-    <div className=" bg-base-300 ">
+    <div className=" bg-base-300  mt-4">
 
     <footer className="footer sm:footer-horizontal footer-center bg-base-300 text-base-content flex justify-between items-center mt-7 p-4 container mx-auto">
   <aside className="grid-flow-col items-center">
@@ -15,7 +15,7 @@ const Footer = () => {
           height={10}
           className="object-contain"
         />
-        <span className="bold">FITLOG</span>
+        <span className="font-bold text-2xl">FITLOG</span>
       </aside>
   <aside>
      <p className="text-sm text-gray-500 text-center">

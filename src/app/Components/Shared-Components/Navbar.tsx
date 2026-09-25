@@ -5,18 +5,30 @@ import logo from "@/app/assests/logo.png";
 import Image from "next/image";
 import Link from "next/link";
 import { WorkoutContext } from "@/app/Context/WorkoutProvider";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const { addPlan, savePlan } = useContext(WorkoutContext);
+  const pathName = usePathname();
 
   const links = (
     <>
       <li>
-        <Link href="/">Workouts</Link>
+        <Link
+          href="/"
+          className={`rounded-3xl ${pathName === "/" ? "text-[#ccff00] bg-[#18250F] " : "text-gray-300 hover:text-white"}`}
+        >
+          Workouts
+        </Link>
       </li>
 
       <li>
-        <Link href="/Components/My-Plan">My Plan</Link>
+        <Link
+          href="/Components/My-Plan"
+          className={`rounded-3xl ${pathName === "/Components/My-Plan" ? "text-[#ccff00] bg-[#18250F] " : "text-gray-300 hover:text-white"}`}
+        >
+          My Plan
+        </Link>
       </li>
     </>
   );
@@ -58,7 +70,7 @@ const Navbar = () => {
               height={10}
               className="object-contain"
             />
-            <span className="bold">FITLOG</span>
+            <span className="font-bold text-2xl">FITLOG</span>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -68,14 +80,14 @@ const Navbar = () => {
           {/* <a className="btn">Button</a> */}
           <Link href="/Components/My-Plan " className="flex gap-2">
             {" "}
-            <span>Plan</span>
+            <span className="text-gray-300">Plan</span>
             <span className=" w-8 rounded-full bg-[#ccff00] text-black flex items-center justify-center font-bold">
               {addPlan.length}
             </span>
           </Link>
           <Link href="/Components/My-Plan " className="flex gap-2">
             {" "}
-            <span>Saved</span>
+            <span className="text-gray-300">Saved</span>
             <span className=" w-8 rounded-full border-gray-500 border-1 text-white flex items-center justify-center font-bold">
               {savePlan.length}
             </span>
