@@ -11,6 +11,7 @@ import { TiTick } from "react-icons/ti";
 import { MdOutlineTimer } from "react-icons/md";
 import { FaFireFlameCurved } from "react-icons/fa6";
 import { FaStar } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 interface PlanProps {
   plan: Workout;
@@ -24,6 +25,7 @@ const ListedCard = ({ plan, isDone }: PlanProps) => {
   const handleRemove = () => {
     setAddPlan(addPlan.filter((item) => item.id !== plan.id));
     setSavePlan(savePlan.filter((item) => item.id !== plan.id));
+    toast.success(`${plan.name} is successfully removed`)
   };
 
   const handleMarkAsDone = () => {
@@ -31,7 +33,13 @@ const ListedCard = ({ plan, isDone }: PlanProps) => {
 
     if (!savePlan.find((item) => item.id === plan.id)) {
       setSavePlan([...savePlan, plan]);
+      toast.success(`${plan.name} is successfully saved in the save List`)
     }
+    else{
+
+        toast.success(`${plan.name} completed successfully`)
+    }
+   
   };
 
   return (

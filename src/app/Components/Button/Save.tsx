@@ -15,10 +15,10 @@ const SaveBtn = ({ data }: DataProps) => {
         const isAlreadySaved = savePlan.some((b) => b.id === data.id);
 
        if (isAlreadySaved) {
-            toast.error("You have already saved this book to save list");
+            toast.error(`You have already saved ${data.name}` );
         } else {
             setSavePlan([...savePlan, data]);
-            toast.success("Book saved to save list successfully");
+            toast.success(`${data.name} is saved successfully`);
         }
     
     console.log("Save btn trigered");

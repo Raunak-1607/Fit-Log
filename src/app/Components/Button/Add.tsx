@@ -14,10 +14,10 @@ const AddBtn = ({ data }: DataProps) => {
     const isAlreadyAdd = addPlan.some((b) => b.id === data.id);
 
     if (isAlreadyAdd) {
-      toast.error("You have already Add this plan");
+      toast.error(`You have already Add ${data.name}`);
     } else {
       setAddPlan([...addPlan, data]);
-      toast.success("Plan added successfully");
+      toast.success(`${data.name} added successfully`);
     }
     console.log("Add btn triggered");
   };
