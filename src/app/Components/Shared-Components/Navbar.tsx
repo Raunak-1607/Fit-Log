@@ -62,22 +62,24 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
-          <Link href="/" className="btn btn-ghost text-xl">
-            <Image
-              src={logo}
-              alt="Fit Log"
-              width={35}
-              height={10}
-              className="object-contain"
-            />
-            <span className="font-bold text-2xl">FITLOG</span>
-          </Link>
+          <div>
+            <Link href="/" className="btn btn-ghost px-2 sm:px-4 text-xl hover:bg-transparent hover:text-inherit">
+              <Image
+                src={logo}
+                alt="Fit Log"
+                width={35}
+                height={35}
+                className="object-contain"
+              />
+
+              <span className="font-bold text-left sm:text-2xl">FITLOG</span>
+            </Link>
+          </div>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
-        <div className="navbar-end flex gap-4">
-          {/* <a className="btn">Button</a> */}
+        <div className="navbar-end flex gap-4 ">
           <Link href="/Components/My-Plan " className="flex gap-2">
             {" "}
             <span className="text-gray-300">Plan</span>

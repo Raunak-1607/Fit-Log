@@ -3,20 +3,15 @@ import { Workout } from "@/app/Type/Type";
 import AddBtn from "@/app/Components/Button/Add";
 import SaveBtn from "@/app/Components/Button/Save";
 
-
-const generateStaticParams = async()=>{
-  const res =await fetch("https://api.abcz.workers.dev/api/fitlog")
-  const data = await res.json()
-   return (
-    data.map((workout:Workout) =>{
-      return{
-        Id : String(workout.id)
-      }
-
-    })
-   )
-  
-}
+const generateStaticParams = async () => {
+  const res = await fetch("https://api.abcz.workers.dev/api/fitlog");
+  const data = await res.json();
+  return data.map((workout: Workout) => {
+    return {
+      Id: String(workout.id),
+    };
+  });
+};
 
 const WorkoutPageDetails = async ({
   params,
@@ -26,7 +21,7 @@ const WorkoutPageDetails = async ({
   const { Id } = await params;
 
   const res = await fetch(
-    `https://api.abcz.workers.dev/api/fitlog/${encodeURIComponent(Id)}`
+    `https://api.abcz.workers.dev/api/fitlog/${encodeURIComponent(Id)}`,
   );
 
   if (!res.ok) {
@@ -46,11 +41,9 @@ const WorkoutPageDetails = async ({
   ];
 
   return (
-    <div className="max-w-[1200px] mx-auto p-6 my-8">
-      <div className="grid lg:grid-cols-2 gap-12">
-
-        
-        <div className="relative h-[500px]">
+    <div className="w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 min-w-0">
+        <div className="relative w-full h-[280px] sm:h-[380px] lg:h-[500px] min-w-0">
           <Image
             src={data.image}
             alt={data.name}
@@ -60,18 +53,14 @@ const WorkoutPageDetails = async ({
           />
         </div>
 
-        
-        <div>
-          <h1 className="text-4xl font-black uppercase text-white mb-3">
+        <div className="min-w-0">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase text-white mb-3 wrap-break-word">
             {data.name}
           </h1>
 
-          <p className="text-gray-400 mb-5">
-            {data.description}
-          </p>
+          <p className="text-gray-400 mb-5">{data.description}</p>
 
-         
-          <div className="flex gap-3 mb-6">
+          <div className="flex gap-3 mb-6 flex-wrap">
             {data.muscleGroups.map((muscle) => (
               <span
                 key={muscle}
@@ -82,52 +71,53 @@ const WorkoutPageDetails = async ({
             ))}
           </div>
 
-         
-          <div className="bg-[#16181c] rounded-xl overflow-hidden mb-7">
+          <div className="bg-[#16181c] rounded-xl overflow-hidden mb-7 w-full">
             {stats.map(([label, value], index) => (
               <div
                 key={label}
-                className={`flex justify-between px-5 py-4 ${
-                  index !== stats.length - 1
-                    ? "border-b border-white/5"
-                    : ""
+                className={`flex items-center justify-between gap-4 px-4 sm:px-5 py-4 ${
+                  index !== stats.length - 1 ? "border-b border-white/5" : ""
                 }`}
               >
-                <span className="text-gray-500 text-xs font-bold">
+                <span className="text-gray-500 text-xs sm:text-sm font-bold">
                   {label}
                 </span>
 
-                <span className="text-gray-200 text-sm">
+                <span className="text-gray-200 text-sm sm:text-base text-right">
                   {value}
                 </span>
               </div>
             ))}
           </div>
 
-          
-          <h2 className="text-white font-black mb-4">
+          <h2 className="text-white text-xl sm:text-2xl font-black mb-4">
             INSTRUCTIONS
           </h2>
 
-          <div className="space-y-3 mb-7">
+          <div className="space-y-4 mb-7">
             {data.instructions.map((instruction, index) => (
               <div
                 key={index}
-                className="flex gap-3 text-gray-400"
+                className="flex items-start gap-3 text-gray-400 text-sm sm:text-base leading-6 sm:leading-7"
               >
-                <span>{index + 1}.</span>
-                <span>{instruction}</span>
+                <span className="shrink-0">{index + 1}.</span>
+
+                <span className="min-w-0 break-words">{instruction}</span>
               </div>
             ))}
           </div>
 
-          {/* Buttons */}
-          <div className="flex gap-4">
-            <AddBtn data={data}/>
-            <SaveBtn data ={data}/>
+          
+          <div className=" flex flex-col justify-center items-center sm:flex-row gap-3 sm:gap-4 w-full">
+            <div className="w-full sm:w-auto flex justify-center">
+              <AddBtn data={data} />
+            </div>
+
+            <div className="w-full sm:w-auto flex justify-center">
+              <SaveBtn data={data} />
+            </div>
           </div>
         </div>
-
       </div>
     </div>
   );
