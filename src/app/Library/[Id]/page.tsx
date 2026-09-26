@@ -4,7 +4,7 @@ import AddBtn from "@/app/Components/Button/Add";
 import SaveBtn from "@/app/Components/Button/Save";
 
 const generateStaticParams = async () => {
-  const res = await fetch("https://api.abcz.workers.dev/api/fitlog");
+  const res = await fetch("https://api.api-store.workers.dev/api/fitlog");
   const data = await res.json();
   return data.map((workout: Workout) => {
     return {
@@ -21,7 +21,7 @@ const WorkoutPageDetails = async ({
   const { Id } = await params;
 
   const res = await fetch(
-    `https://api.abcz.workers.dev/api/fitlog/${encodeURIComponent(Id)}`,
+    `https://api.api-store.workers.dev/api/fitlog/${encodeURIComponent(Id)}`,
   );
 
   if (!res.ok) {
